@@ -74,7 +74,7 @@ class Particle {
         fill(255);
 
         push();
-        rotate(offset);
+        rotateZ(offset);
         translate(this.pos_x, 0, 0);
 
         sphere(this.size);

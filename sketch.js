@@ -13,7 +13,6 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
-    let position = createVector(0, 0);
     galaxy = new Galaxy(
         center_size = 16,
         n_arms = 12,

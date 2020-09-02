@@ -14,7 +14,7 @@ function setup() {
 
     galaxy = new Galaxy(
         createVector(0, 0, 0),
-        createVector(60 * PI / 180, 0, 20 * PI / 180),
+        createVector(60 * PI / 180, 20 * PI / 180, 0),
         n_arms = random(6, 16),
         arm_size = 250,
         n_particles = 15,
@@ -42,7 +42,7 @@ let pressedY = 0;
 let isPressed = false;
 
 let sensitivityX = -0.0001;
-let sensitivityY = -0.0001;
+let sensitivityY = 0.0001;
 
 let rotationSpeed = 0.0001;
 

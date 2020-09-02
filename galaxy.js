@@ -49,11 +49,11 @@ class Arm {
         strokeWeight(1);
 
         push();
-        rotate(this.angle);
+        rotateZ(this.angle);
 
         for (let i = 0; i < this.particles.length; i++) {
             const particle = this.particles[i];
-            particle.draw(offset * i);
+            particle.draw(offset * i, this.angle);
         }
 
         pop();
@@ -68,13 +68,19 @@ class Particle {
         this.size = size;
     }
 
-    draw(offset) {
+    draw(offset, arm_angle) {
         noStroke();
         fill(255);
 
         push();
         rotateZ(offset);
         translate(this.pos_x, 0, this.pos_z);
+
+        // desfaz as rotações, faz a imagem virar pra camera
+        rotateZ(-offset);
+        rotateZ(-arm_angle);
+        rotateZ(-z_rotation);
+        rotateX(-x_rotation);
 
         image(dust, 0, 0, this.size, this.size);
         pop();

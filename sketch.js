@@ -2,8 +2,10 @@ let bg;
 let dust;
 
 let galaxy;
-let angle = 0;
 let offset = 0.4;
+
+let x_rotation = 60 * PI / 180;
+let z_rotation = 0;
 
 function preload() {
     bg = loadImage('images/background.jpg');
@@ -30,9 +32,9 @@ function draw() {
     pop();
 
     push();
-    rotateX(60 * PI / 180);
-    rotateZ(angle);
-    angle += 0.003;
+    rotateX(x_rotation);
+    rotateZ(z_rotation);
+    z_rotation += 0.003;
 
     galaxy.draw(offset);
     pop();

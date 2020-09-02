@@ -71,6 +71,7 @@ class Particle {
         rotateZ(-offset);
         rotateZ(-arm_angle);
         rotateZ(-z_rotation);
+        rotateY(-y_rotation);
         rotateX(-x_rotation);
 
         rotateZ(this.rotZ);

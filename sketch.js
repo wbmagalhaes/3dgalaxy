@@ -3,7 +3,7 @@ let bg, dust;
 let galaxy;
 let spiral_offset = -0.14;
 
-let x_rotation, z_rotation;
+let x_rotation, y_rotation, z_rotation;
 
 function preload() {
     bg = loadImage('images/background.jpg');
@@ -20,6 +20,7 @@ function setup() {
         particle_size = 120);
 
     x_rotation = 60 * PI / 180;
+    y_rotation = 0;
     z_rotation = 0;
 
     let gl = document.getElementById('defaultCanvas0').getContext('webgl');
@@ -40,6 +41,7 @@ function draw() {
 
     push();
     rotateX(x_rotation);
+    rotateY(y_rotation);
     rotateZ(z_rotation);
     z_rotation += 0.002;
 

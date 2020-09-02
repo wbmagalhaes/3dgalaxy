@@ -29,9 +29,11 @@ class Arm {
         this.particles = [];
         for (let i = 0; i < n_particles; i++) {
             let pos = pos_step * (i + 1);
-            let p_size = map(pos, 0, size, particle_size, 0.4 * particle_size);
 
-            let particle = new Particle(pos, p_size);
+            let p_size = map(pos, pos_step, size, particle_size, 0.4 * particle_size);
+            let p_alpha = map(pos, pos_step, size, 25, 250);
+
+            let particle = new Particle(pos, p_size, p_alpha);
             this.particles.push(particle);
         }
     }
@@ -51,16 +53,16 @@ class Arm {
 
 class Particle {
 
-    constructor(pos_x, size) {
+    constructor(pos_x, size, alpha) {
         this.pos_x = pos_x;
-        this.pos_z = random(-10, 10);
         this.size = size;
+        this.alpha = alpha;
     }
 
     draw(offset, arm_angle) {
         push();
         rotateZ(offset);
-        translate(this.pos_x, 0, this.pos_z);
+        translate(this.pos_x, 0, 0);
 
         // desfaz as rotações, faz a imagem virar pra camera
         rotateZ(-offset);
@@ -68,7 +70,7 @@ class Particle {
         rotateZ(-z_rotation);
         rotateX(-x_rotation);
 
-        tint(255, 250);
+        tint(255, this.alpha);
         texture(dust);
         rect(0, 0, this.size, this.size);
 

@@ -1,7 +1,7 @@
 let bg, dust;
 
 let galaxy;
-let spiral_offset = 0.4;
+let spiral_offset = -0.14;
 
 let x_rotation, z_rotation;
 
@@ -14,10 +14,10 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     galaxy = new Galaxy(
-        n_arms = 12,
-        arm_size = 300,
-        n_particles = 14,
-        particle_size = 60);
+        n_arms = 8,
+        arm_size = 250,
+        n_particles = 15,
+        particle_size = 120);
 
     x_rotation = 60 * PI / 180;
     z_rotation = 0;
@@ -33,10 +33,10 @@ function setup() {
 
 function mouseClicked() {
     galaxy = new Galaxy(
-        n_arms = 12,
-        arm_size = 300,
-        n_particles = 14,
-        particle_size = 60);
+        n_arms = 8,
+        arm_size = 250,
+        n_particles = 15,
+        particle_size = 120);
 }
 
 function draw() {

@@ -88,6 +88,7 @@ class Particle {
         translate(this.pos_x, 0, 0);
 
         sphere(this.size);
+        image(dust, 0, 0);
 
         pop();
     }

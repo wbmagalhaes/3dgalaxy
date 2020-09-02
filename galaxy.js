@@ -31,7 +31,7 @@ class Arm {
             let pos = pos_step * (i + 1);
 
             let p_size = map(pos, pos_step, size, particle_size, 0.4 * particle_size);
-            let p_alpha = map(pos, pos_step, size, 25, 250);
+            let p_alpha = map(pos, pos_step, size, 127, 12);
 
             let particle = new Particle(pos, p_size, p_alpha);
             this.particles.push(particle);
@@ -57,6 +57,8 @@ class Particle {
         this.pos_x = pos_x;
         this.size = size;
         this.alpha = alpha;
+
+        this.rotZ = random(-PI, PI);
     }
 
     draw(offset, arm_angle) {
@@ -69,6 +71,8 @@ class Particle {
         rotateZ(-arm_angle);
         rotateZ(-z_rotation);
         rotateX(-x_rotation);
+
+        rotateZ(this.rotZ);
 
         tint(255, this.alpha);
         texture(dust);

@@ -26,6 +26,7 @@ function setup() {
     gl.disable(gl.DEPTH_TEST);
 
     imageMode(CENTER);
+    rectMode(CENTER);
 
     noStroke();
     fill(255);

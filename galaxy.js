@@ -68,10 +68,6 @@ class Particle {
         rotateZ(-z_rotation);
         rotateX(-x_rotation);
 
-        gl = this._renderer.GL;
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
-
         texture(dust);
         rect(0, 0, this.size, this.size);
 

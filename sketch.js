@@ -19,10 +19,14 @@ function setup() {
         n_particles = 14,
         particle_size = 120);
 
-    imageMode(CENTER);
-
     x_rotation = 60 * PI / 180;
     z_rotation = 0;
+
+    gl = this._renderer.GL;
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
+
+    imageMode(CENTER);
 }
 
 function draw() {

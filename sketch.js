@@ -7,7 +7,7 @@ let offset = 0.4;
 
 function preload() {
     bg = loadImage('images/background.jpg');
-    dust = loadImage('images/spacedust.jpg');
+    dust = loadImage('images/spacedust.png');
 }
 
 function setup() {

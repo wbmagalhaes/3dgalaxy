@@ -77,7 +77,6 @@ function draw() {
     rotateX(x_rotation);
     rotateY(y_rotation);
     rotateZ(z_rotation);
-    z_rotation += rotationSpeed * deltaTime;
 
     galaxy.draw();
 

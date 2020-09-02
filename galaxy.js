@@ -27,6 +27,8 @@ class Galaxy {
         }
 
         pop();
+
+        this.rotation.z += rotationSpeed * deltaTime;
     }
 }
 

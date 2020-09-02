@@ -23,6 +23,8 @@ function setup() {
 
 function draw() {
     background(51);
+
+    imageMode(CENTER);
     image(bg, 0, 0);
 
     push();

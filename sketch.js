@@ -17,7 +17,7 @@ function setup() {
         n_arms = 12,
         arm_size = 300,
         n_particles = 14,
-        particle_size = 120);
+        particle_size = 60);
 
     x_rotation = 60 * PI / 180;
     z_rotation = 0;
@@ -29,6 +29,14 @@ function setup() {
 
     noStroke();
     fill(255);
+}
+
+function mouseClicked() {
+    galaxy = new Galaxy(
+        n_arms = 12,
+        arm_size = 300,
+        n_particles = 14,
+        particle_size = 60);
 }
 
 function draw() {

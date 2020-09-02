@@ -29,7 +29,7 @@ class Arm {
         this.particles = [];
         for (let i = 0; i < n_particles; i++) {
             let pos = pos_step * (i + 1);
-            let p_size = map(pos, 0, size, particle_size, 0.2 * particle_size);
+            let p_size = map(pos, 0, size, particle_size, 0.4 * particle_size);
 
             let particle = new Particle(pos, p_size);
             this.particles.push(particle);
@@ -53,7 +53,7 @@ class Particle {
 
     constructor(pos_x, size) {
         this.pos_x = pos_x;
-        this.pos_z = random(-30, 30);
+        this.pos_z = random(-10, 10);
         this.size = size;
     }
 

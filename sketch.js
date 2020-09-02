@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(2560, 1600, WEBGL);
+    createCanvas(bg.height, bg.width, WEBGL);
 
     galaxy = new Galaxy(
         n_arms = 8,
@@ -19,7 +19,7 @@ function setup() {
         n_particles = 15,
         particle_size = 120);
 
-    x_rotation = 60 * PI / 180;
+    x_rotation = 0;
     y_rotation = 0;
     z_rotation = 0;
 
@@ -35,19 +35,19 @@ function setup() {
 
 function draw() {
     background(51);
-    
+
     orbitControl();
-    
+
     push();
     rotateX(x_rotation);
     rotateY(y_rotation);
     rotateZ(z_rotation);
-    z_rotation += 0.002;
+    // z_rotation += 0.002;
 
     galaxy.draw(spiral_offset);
     pop();
 }
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//     resizeCanvas(windowWidth, windowHeight);
+// }

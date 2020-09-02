@@ -1,11 +1,9 @@
-let bg;
-let dust;
+let bg, dust;
 
 let galaxy;
-let offset = 0.4;
+let spiral_offset = 0.4;
 
-let x_rotation = 60 * PI / 180;
-let z_rotation = 0;
+let x_rotation, z_rotation;
 
 function preload() {
     bg = loadImage('images/background.jpg');
@@ -23,6 +21,9 @@ function setup() {
         particle_size = 120);
 
     imageMode(CENTER);
+
+    x_rotation = 60 * PI / 180;
+    z_rotation = 0;
 }
 
 function draw() {
@@ -36,7 +37,7 @@ function draw() {
     rotateZ(z_rotation);
     z_rotation += 0.003;
 
-    galaxy.draw(offset);
+    galaxy.draw(spiral_offset);
     pop();
 }
 

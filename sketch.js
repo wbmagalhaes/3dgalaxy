@@ -28,7 +28,7 @@ function setup() {
     let gl = document.getElementById('defaultCanvas0').getContext('webgl');
     gl.disable(gl.DEPTH_TEST);
 
-    imageMode(CENTER);
+    imageMode(CORNER);
     rectMode(CENTER);
 
     noStroke();
@@ -72,8 +72,8 @@ function draw() {
     }
 
     push();
-    translate(0, 0, -500);
-    image(bg, 0, 0);
+    //translate(0, 0, -500);
+    image(bg, -windowWidth / 2, -windowHeight / 2);
     pop();
 
     push();

@@ -15,7 +15,6 @@ function setup() {
 
     let position = createVector(0, 0);
     galaxy = new Galaxy(
-        position = position,
         center_size = 16,
         n_arms = 12,
         arm_size = 300,
@@ -42,7 +41,4 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-
-    let pos = createVector(0, 0);
-    galaxy.reposition(pos);
 }

@@ -1,7 +1,6 @@
 class Galaxy {
 
-    constructor(position, center_size, n_arms, arm_size, n_particles, particle_size) {
-        this.position = position;
+    constructor(center_size, n_arms, arm_size, n_particles, particle_size) {
         this.center_size = center_size;
 
         let angle_step = 2 * PI / n_arms;
@@ -13,16 +12,9 @@ class Galaxy {
         }
     }
 
-    reposition(position) {
-        this.position = position;
-    }
-
     draw(offset) {
         noStroke();
         fill(255);
-
-        push();
-        translate(this.position.x, this.position.y);
 
         sphere(this.center_size);
 
@@ -30,8 +22,6 @@ class Galaxy {
             const arm = this.arms[i];
             arm.draw(offset);
         }
-
-        pop();
     }
 }
 

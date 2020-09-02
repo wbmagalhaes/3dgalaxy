@@ -22,11 +22,13 @@ function setup() {
     x_rotation = 60 * PI / 180;
     z_rotation = 0;
 
-    gl = this._renderer.GL;
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
+    let gl = document.getElementById('defaultCanvas0').getContext('webgl');
+    gl.disable(gl.DEPTH_TEST);
 
     imageMode(CENTER);
+
+    noStroke();
+    fill(255);
 }
 
 function draw() {
@@ -38,7 +40,7 @@ function draw() {
     push();
     rotateX(x_rotation);
     rotateZ(z_rotation);
-    z_rotation += 0.003;
+    z_rotation += 0.002;
 
     galaxy.draw(spiral_offset);
     pop();

@@ -1,24 +1,24 @@
 class Galaxy {
 
-    constructor(position, n_arms, arm_size, n_particles, particle_size) {
+    constructor(position, n_arms, arm_size, n_particles, particle_size, spiral_offset) {
         this.position = position;
 
         let angle_step = 2 * PI / n_arms;
 
         this.arms = [];
         for (let i = 0; i < n_arms; i++) {
-            let arm = new Arm(angle_step * i, arm_size, n_particles, particle_size);
+            let arm = new Arm(angle_step * i, arm_size, n_particles, particle_size, spiral_offset);
             this.arms.push(arm);
         }
     }
 
-    draw(offset) {
+    draw() {
         push();
         translate(this.position.x, this.position.y, this.position.z);
 
         for (let i = 0; i < this.arms.length; i++) {
             const arm = this.arms[i];
-            arm.draw(offset);
+            arm.draw();
         }
 
         pop();
@@ -27,7 +27,7 @@ class Galaxy {
 
 class Arm {
 
-    constructor(angle, size, n_particles, particle_size) {
+    constructor(angle, size, n_particles, particle_size, spiral_offset) {
         this.angle = angle;
         this.size = size;
 
@@ -40,18 +40,18 @@ class Arm {
             let p_size = map(pos, pos_step, size, particle_size, 0.4 * particle_size);
             let p_alpha = map(pos, pos_step, size, 127, 12);
 
-            let particle = new Particle(pos, p_size, p_alpha);
+            let particle = new Particle(pos, p_size, spiral_offset * i, p_alpha);
             this.particles.push(particle);
         }
     }
 
-    draw(offset) {
+    draw() {
         push();
         rotateZ(this.angle);
 
         for (let i = 0; i < this.particles.length; i++) {
             const particle = this.particles[i];
-            particle.draw(offset * i, this.angle);
+            particle.draw(this.angle);
         }
 
         pop();
@@ -60,22 +60,23 @@ class Arm {
 
 class Particle {
 
-    constructor(pos_x, size, alpha) {
+    constructor(pos_x, size, offset, alpha) {
         this.pos_x = pos_x;
         this.size = size;
+        this.offset = offset;
         this.alpha = alpha;
 
         this.rotZ = random(-PI, PI);
         this.rotZDir = Math.sign(random(-1, 1));
     }
 
-    draw(offset, arm_angle) {
+    draw(arm_angle) {
         push();
-        rotateZ(offset);
+        rotateZ(this.offset);
         translate(this.pos_x, 0, 0);
 
         // desfaz as rotações, faz a imagem virar pra camera
-        rotateZ(-offset);
+        rotateZ(-this.offset);
         rotateZ(-arm_angle);
         rotateZ(-z_rotation);
         rotateY(-y_rotation);

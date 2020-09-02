@@ -1,24 +1,26 @@
 let bg, dust;
 
-let galaxy;
-let spiral_offset = -0.14;
+let galaxies = [];
 
 let x_rotation, y_rotation, z_rotation;
 
 function preload() {
-    bg = loadImage('images/background.jpg');
+    bg = loadImage('images/background2.jpg');
     dust = loadImage('images/spacedust.png');
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
-    galaxy = new Galaxy(
-        createVector(0, 0, 0),
-        n_arms = 8,
-        arm_size = 250,
-        n_particles = 15,
-        particle_size = 120);
+    for (let i = 0; i < 6; i++) {
+        galaxy = new Galaxy(
+            createVector(random(0, windowWidth), random(0, windowHeight), random(-200, 200)),
+            n_arms = random(6, 16),
+            arm_size = 250,
+            n_particles = 15,
+            particle_size = 120,
+            spiral_offset = -0.14);
+    }
 
     x_rotation = 0;
     y_rotation = 0;
@@ -78,7 +80,10 @@ function draw() {
     rotateZ(z_rotation);
     z_rotation += 0.0001 * deltaTime;
 
-    galaxy.draw(spiral_offset);
+    galaxies.forEach(galaxy => {
+        galaxy.draw();
+    });
+
     pop();
 }
 

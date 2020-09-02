@@ -76,7 +76,7 @@ function draw() {
     rotateX(x_rotation);
     rotateY(y_rotation);
     rotateZ(z_rotation);
-    z_rotation += 0.0001 * deltaTime ;
+    z_rotation += 0.0001 * deltaTime;
 
     galaxy.draw(spiral_offset);
     pop();

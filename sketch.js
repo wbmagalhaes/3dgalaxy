@@ -18,7 +18,7 @@ function setup() {
         n_arms = 12,
         arm_size = 300,
         n_particles = 10,
-        particle_size = 8);
+        particle_size = 80);
 
     imageMode(CENTER);
 }

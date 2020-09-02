@@ -66,6 +66,7 @@ class Particle {
 
     constructor(pos_x, size) {
         this.pos_x = pos_x;
+        this.pos_z = random(-10, 10);
         this.size = size;
     }
 
@@ -75,11 +76,9 @@ class Particle {
 
         push();
         rotateZ(offset);
-        translate(this.pos_x, 0, 0);
+        translate(this.pos_x, 0, this.pos_z);
 
-        sphere(this.size);
-        image(dust, 0, 0);
-
+        image(dust, this.size, this.size);
         pop();
     }
 }

@@ -32,6 +32,8 @@ function setup() {
 
     noStroke();
     fill(255);
+
+    x_rotation = 60 * PI / 180;
 }
 
 let pressedX = 0;
@@ -72,7 +74,7 @@ function draw() {
     rotateX(x_rotation);
     rotateY(y_rotation);
     rotateZ(z_rotation);
-    z_rotation += 0.002;
+    z_rotation += 0.001;
 
     galaxy.draw(spiral_offset);
     pop();

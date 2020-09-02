@@ -82,9 +82,7 @@ function draw() {
     rotateZ(z_rotation);
     z_rotation += rotationSpeed * deltaTime;
 
-    galaxies.forEach(galaxy => {
-        galaxy.draw();
-    });
+    galaxy.draw();
 
     pop();
 }

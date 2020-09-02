@@ -14,6 +14,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     galaxy = new Galaxy(
+        createVector(0, 0, 0),
         n_arms = 8,
         arm_size = 250,
         n_particles = 15,
@@ -37,8 +38,8 @@ let pressedX = 0;
 let pressedY = 0;
 let isPressed = false;
 
-let sensitivityX = 0.01;
-let sensitivityY = 0.01;
+let sensitivityX = 0.001;
+let sensitivityY = -0.001;
 
 function mousePressed() {
     pressedX = mouseX;

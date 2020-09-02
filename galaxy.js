@@ -74,7 +74,7 @@ class Particle {
         rotateX(-x_rotation);
 
         rotateZ(this.rotZ);
-        this.rotZ += 0.004 * this.rotZDir;
+        this.rotZ += 0.002 * this.rotZDir;
 
         tint(255, this.alpha);
         texture(dust);

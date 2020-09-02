@@ -32,14 +32,6 @@ function setup() {
     fill(255);
 }
 
-function mouseClicked() {
-    galaxy = new Galaxy(
-        n_arms = 8,
-        arm_size = 250,
-        n_particles = 15,
-        particle_size = 120);
-}
-
 function draw() {
     push();
     translate(0, 0, -500);

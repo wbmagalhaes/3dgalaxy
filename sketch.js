@@ -14,11 +14,11 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     galaxy = new Galaxy(
-        center_size = 16,
+        center_size = 12,
         n_arms = 12,
         arm_size = 300,
-        n_particles = 10,
-        particle_size = 80);
+        n_particles = 14,
+        particle_size = 120);
 
     imageMode(CENTER);
 }

@@ -14,7 +14,7 @@ class Galaxy {
 
     draw(offset) {
         noStroke();
-        fill(255);
+        fill(0);
 
         sphere(this.center_size);
 
@@ -51,8 +51,6 @@ class Arm {
         push();
         rotate(this.angle);
 
-        // line(0, 0, this.size, 0);
-
         for (let i = 0; i < this.particles.length; i++) {
             const particle = this.particles[i];
             particle.draw(offset * i);
@@ -78,7 +76,7 @@ class Particle {
         rotateZ(offset);
         translate(this.pos_x, 0, this.pos_z);
 
-        image(dust, this.size, this.size);
+        image(dust, 0, 0, this.size, this.size);
         pop();
     }
 }

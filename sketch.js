@@ -5,7 +5,7 @@ let galaxy;
 let x_rotation, y_rotation, z_rotation;
 
 function preload() {
-    bg = loadImage('images/background2.png');
+    bg = loadImage('images/background.png');
     dust = loadImage('images/spacedust.png');
 }
 
@@ -14,7 +14,7 @@ function setup() {
 
     galaxy = new Galaxy(
         createVector(0, 0, 0),
-        createVector(60 * PI / 180, 0, 0),
+        createVector(60 * PI / 180, 0, 20 * PI / 180),
         n_arms = random(6, 16),
         arm_size = 250,
         n_particles = 15,

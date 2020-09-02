@@ -1,8 +1,6 @@
 class Galaxy {
 
-    constructor(center_size, n_arms, arm_size, n_particles, particle_size) {
-        this.center_size = center_size;
-
+    constructor(n_arms, arm_size, n_particles, particle_size) {
         let angle_step = 2 * PI / n_arms;
 
         this.arms = [];
@@ -13,11 +11,6 @@ class Galaxy {
     }
 
     draw(offset) {
-        noStroke();
-        fill(0);
-
-        sphere(this.center_size);
-
         for (let i = 0; i < this.arms.length; i++) {
             const arm = this.arms[i];
             arm.draw(offset);
@@ -44,10 +37,6 @@ class Arm {
     }
 
     draw(offset) {
-        stroke(255);
-        noFill();
-        strokeWeight(1);
-
         push();
         rotateZ(this.angle);
 
@@ -69,9 +58,6 @@ class Particle {
     }
 
     draw(offset, arm_angle) {
-        noStroke();
-        fill(255);
-
         push();
         rotateZ(offset);
         translate(this.pos_x, 0, this.pos_z);

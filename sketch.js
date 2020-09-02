@@ -14,7 +14,6 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     galaxy = new Galaxy(
-        center_size = 12,
         n_arms = 12,
         arm_size = 300,
         n_particles = 14,

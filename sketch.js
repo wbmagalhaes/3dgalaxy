@@ -13,13 +13,16 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     for (let i = 0; i < 6; i++) {
-        galaxy = new Galaxy(
+        let galaxy = new Galaxy(
             createVector(random(0, windowWidth), random(0, windowHeight), random(-200, 200)),
+            createVector(random(-PI, PI), random(-PI, PI), random(-PI, PI)),
             n_arms = random(6, 16),
             arm_size = 250,
             n_particles = 15,
             particle_size = 120,
             spiral_offset = -0.14);
+
+        galaxies.push(galaxy);
     }
 
     x_rotation = 0;

@@ -1,7 +1,8 @@
 class Galaxy {
 
-    constructor(position, n_arms, arm_size, n_particles, particle_size, spiral_offset) {
+    constructor(position, rotation, n_arms, arm_size, n_particles, particle_size, spiral_offset) {
         this.position = position;
+        this.rotation = rotation;
 
         let angle_step = 2 * PI / n_arms;
 
@@ -14,11 +15,15 @@ class Galaxy {
 
     draw() {
         push();
+
         translate(this.position.x, this.position.y, this.position.z);
+        rotateX(this.rotation.x);
+        rotateY(this.rotation.y);
+        rotateZ(this.rotation.z);
 
         for (let i = 0; i < this.arms.length; i++) {
             const arm = this.arms[i];
-            arm.draw();
+            arm.draw(this.rotation);
         }
 
         pop();
@@ -45,13 +50,13 @@ class Arm {
         }
     }
 
-    draw() {
+    draw(galaxy_rotation) {
         push();
         rotateZ(this.angle);
 
         for (let i = 0; i < this.particles.length; i++) {
             const particle = this.particles[i];
-            particle.draw(this.angle);
+            particle.draw(galaxy_rotation, this.angle);
         }
 
         pop();
@@ -70,7 +75,7 @@ class Particle {
         this.rotZDir = Math.sign(random(-1, 1));
     }
 
-    draw(arm_angle) {
+    draw(galaxy_rotation, arm_angle) {
         push();
         rotateZ(this.offset);
         translate(this.pos_x, 0, 0);
@@ -78,6 +83,9 @@ class Particle {
         // desfaz as rotações, faz a imagem virar pra camera
         rotateZ(-this.offset);
         rotateZ(-arm_angle);
+        rotateZ(-galaxy_rotation.x);
+        rotateY(-galaxy_rotation.y);
+        rotateX(-galaxy_rotation.z);
         rotateZ(-z_rotation);
         rotateY(-y_rotation);
         rotateX(-x_rotation);

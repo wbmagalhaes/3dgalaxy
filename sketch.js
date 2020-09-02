@@ -38,7 +38,7 @@ let pressedX = 0;
 let pressedY = 0;
 let isPressed = false;
 
-let sensitivityX = 0.001;
+let sensitivityX = -0.001;
 let sensitivityY = -0.001;
 
 function mousePressed() {
@@ -53,6 +53,7 @@ function mouseReleased() {
 }
 
 function draw() {
+    background(17, 14, 33);
 
     if (isPressed) {
         let dx = (mouseX - pressedX) * sensitivityX;
@@ -62,7 +63,10 @@ function draw() {
         x_rotation += dy;
     }
 
-    background(51);
+    push();
+    translate(0, 0, -500);
+    image(bg, 0, 0);
+    pop();
 
     push();
     rotateX(x_rotation);

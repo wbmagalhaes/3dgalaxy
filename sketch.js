@@ -5,7 +5,7 @@ let galaxy;
 let x_rotation, y_rotation, z_rotation;
 
 function preload() {
-    bg = loadImage('images/background.png');
+    bg = loadImage('images/background.jpg');
     dust = loadImage('images/spacedust.png');
 }
 

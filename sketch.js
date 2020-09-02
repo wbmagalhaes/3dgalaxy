@@ -15,7 +15,7 @@ function setup() {
     galaxy = new Galaxy(
         createVector(0, 0, 0),
         createVector(60 * PI / 180, 20 * PI / 180, 0),
-        n_arms = random(6, 16),
+        n_arms = 8,
         arm_size = 250,
         n_particles = 15,
         particle_size = 120,

@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(bg.width, bg.height, WEBGL);
+    createCanvas(windowWidth, windowHeight, WEBGL);
 
     galaxy = new Galaxy(
         n_arms = 8,
@@ -37,8 +37,8 @@ let pressedX = 0;
 let pressedY = 0;
 let isPressed = false;
 
-let sensitivityX = 0.1;
-let sensitivityY = 0.1;
+let sensitivityX = 0.01;
+let sensitivityY = 0.01;
 
 function mousePressed() {
     pressedX = mouseX;
@@ -54,13 +54,11 @@ function mouseReleased() {
 function draw() {
 
     if (isPressed) {
-        let dx = mouseX - pressedX;
-        let dy = mouseY - pressedY;
+        let dx = (mouseX - pressedX) * sensitivityX;
+        let dy = (mouseY - pressedY) * sensitivityY;
 
-        let rotX = dx * sensitivityX;
-        let rotY = dy * sensitivityY;
-        x_rotation += rotX;
-        y_rotation += rotY;
+        z_rotation += dx;
+        x_rotation += dy;
     }
 
     background(51);
@@ -75,6 +73,6 @@ function draw() {
     pop();
 }
 
-// function windowResized() {
-//     resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}

@@ -5,7 +5,7 @@ let galaxies = [];
 let x_rotation, y_rotation, z_rotation;
 
 function preload() {
-    bg = loadImage('images/background2.jpg');
+    bg = loadImage('images/background2.png');
     dust = loadImage('images/spacedust.png');
 }
 
@@ -44,8 +44,8 @@ let pressedX = 0;
 let pressedY = 0;
 let isPressed = false;
 
-let sensitivityX = -0.001;
-let sensitivityY = -0.001;
+let sensitivityX = -0.01;
+let sensitivityY = -0.01;
 
 function mousePressed() {
     pressedX = mouseX;
@@ -67,6 +67,9 @@ function draw() {
 
         z_rotation += dx;
         x_rotation += dy;
+
+        pressedX = mouseX;
+        pressedY = mouseY;
     }
 
     push();

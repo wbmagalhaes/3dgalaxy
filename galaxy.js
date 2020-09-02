@@ -59,6 +59,7 @@ class Particle {
         this.alpha = alpha;
 
         this.rotZ = random(-PI, PI);
+        this.rotZDir = Math.sign(random(-1, 1));
     }
 
     draw(offset, arm_angle) {
@@ -73,6 +74,7 @@ class Particle {
         rotateX(-x_rotation);
 
         rotateZ(this.rotZ);
+        this.rotZ += 0.004 * rotZDir;
 
         tint(255, this.alpha);
         texture(dust);

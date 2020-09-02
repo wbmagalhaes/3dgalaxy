@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(bg.height, bg.width, WEBGL);
+    createCanvas(bg.width, bg.height, WEBGL);
 
     galaxy = new Galaxy(
         n_arms = 8,
@@ -33,16 +33,43 @@ function setup() {
     fill(255);
 }
 
-function draw() {
-    background(51);
+let pressedX = 0;
+let pressedY = 0;
+let isPressed = false;
 
-    orbitControl();
+let sensitivityX = 0.1;
+let sensitivityY = 0.1;
+
+function mousePressed() {
+    pressedX = mouseX;
+    pressedY = mouseY;
+
+    isPressed = true;
+}
+
+function mouseReleased() {
+    isPressed = false;
+}
+
+function draw() {
+
+    if (isPressed) {
+        let dx = mouseX - pressedX;
+        let dy = mouseY - pressedY;
+
+        let rotX = dx * sensitivityX;
+        let rotY = dy * sensitivityY;
+        x_rotation += rotX;
+        y_rotation += rotY;
+    }
+
+    background(51);
 
     push();
     rotateX(x_rotation);
     rotateY(y_rotation);
     rotateZ(z_rotation);
-    // z_rotation += 0.002;
+    z_rotation += 0.002;
 
     galaxy.draw(spiral_offset);
     pop();

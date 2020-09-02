@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight, WEBGL);
+    createCanvas(2560, 1600, WEBGL);
 
     galaxy = new Galaxy(
         n_arms = 8,
@@ -34,11 +34,10 @@ function setup() {
 }
 
 function draw() {
-    push();
-    translate(0, 0, -500);
-    image(bg, 0, 0);
-    pop();
-
+    background(51);
+    
+    orbitControl();
+    
     push();
     rotateX(x_rotation);
     rotateY(y_rotation);

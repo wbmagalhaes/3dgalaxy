@@ -83,9 +83,9 @@ class Particle {
         // desfaz as rotações, faz a imagem virar pra camera
         rotateZ(-this.offset);
         rotateZ(-arm_angle);
-        rotateZ(-galaxy_rotation.x);
+        rotateZ(-galaxy_rotation.z);
         rotateY(-galaxy_rotation.y);
-        rotateX(-galaxy_rotation.z);
+        rotateX(-galaxy_rotation.x);
         rotateZ(-z_rotation);
         rotateY(-y_rotation);
         rotateX(-x_rotation);

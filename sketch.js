@@ -13,7 +13,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     galaxy = new Galaxy(
-        createVector(random(0, windowWidth), random(0, windowHeight), random(-200, 200)),
+        createVector(0, 0, 0),
         createVector(60 * PI / 180, 0, 0),
         n_arms = random(6, 16),
         arm_size = 250,
@@ -41,8 +41,8 @@ let pressedX = 0;
 let pressedY = 0;
 let isPressed = false;
 
-let sensitivityX = -0.001;
-let sensitivityY = -0.001;
+let sensitivityX = -0.0001;
+let sensitivityY = -0.0001;
 
 let rotationSpeed = 0.0001;
 
@@ -71,10 +71,7 @@ function draw() {
         pressedY = mouseY;
     }
 
-    push();
-    //translate(0, 0, -500);
     image(bg, -windowWidth / 2, -windowHeight / 2);
-    pop();
 
     push();
     rotateX(x_rotation);
